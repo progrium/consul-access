@@ -1,0 +1,3 @@
+#!/bin/sh
+htpasswd -bc /etc/nginx/htpasswd $HTPASSWD
+exec /usr/sbin/nginx
