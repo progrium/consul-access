@@ -13,6 +13,14 @@ Simply link against a running Consul container using the alias `consul` and prov
 		--publish 80:80
 		progrium/consul-access
 
+If you're running Consul in `--net=host` mode, you can just set the IP manually with `--add-host`:
+
+	$ docker run -d \
+		--add-host consul:<consul ip> \
+		--env "HTPASSWD=<username> <password>" \
+		--publish 80:80
+		progrium/consul-access
+
 ## Security
 
 Since HTTP [Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) is used, you should only access this behind SSL otherwise your password is transmitted unencrypted.
